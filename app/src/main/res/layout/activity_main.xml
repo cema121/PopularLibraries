@@ -1,50 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_1"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/name_counter_of_days"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/counter_one" />
+        android:text="@string/counter_of_days" />
 
-    <Button
-        android:id="@+id/btn_counter1"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/counter_of_days"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
-        app:layout_constraintTop_toBottomOf="@id/tv_1" />
+        android:text="@string/default_value" />
 
-    <TextView
-        android:id="@+id/tv_2"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/name_counter_of_minutes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/counter_two"
-        app:layout_constraintTop_toBottomOf="@id/btn_counter1" />
+        android:text="@string/counter_of_minutes" />
 
-    <Button
-        android:id="@+id/btn_counter2"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/counter_of_minutes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
-        app:layout_constraintTop_toBottomOf="@id/tv_2" />
+        android:text="@string/default_value" />
 
-    <TextView
-        android:id="@+id/tv_3"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/name_counter_of_likes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/counter_three"
-        app:layout_constraintTop_toBottomOf="@id/btn_counter2" />
+        android:text="@string/counter_of_likes" />
 
-    <Button
-        android:id="@+id/btn_counter3"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/counter_of_likes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
-        app:layout_constraintTop_toBottomOf="@id/tv_3" />
+        android:text="@string/default_value" />
 </LinearLayout>
