@@ -1,10 +1,11 @@
-package com.hungryshark.lesson1.view
+package com.hungryshark.lesson1.view.activity.splash
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.hungryshark.lesson1.databinding.ActivitySplashBinding
+import com.hungryshark.lesson1.view.activity.main.MainActivity
 
 private const val TIME_OF_LOAD_APP: Long = 3000
 
