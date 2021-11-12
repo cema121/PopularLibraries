@@ -5,13 +5,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.hungryshark.libraries.data.ApiHolder
+import com.hungryshark.libraries.data.GlideImageLoader
 import com.hungryshark.libraries.data.app.App
-import com.hungryshark.libraries.data.repository.GithubUsersRepository
+import com.hungryshark.libraries.data.repository.RetrofitGithubUsersRepo
 import com.hungryshark.libraries.databinding.FragmentUserListBinding
 import com.hungryshark.libraries.presenter.user_list.ScreenUserListPresenter
 import com.hungryshark.libraries.utils.IBackButtonListener
 import com.hungryshark.libraries.utils.screens.Screens
 import com.hungryshark.libraries.view.fragments.user_list.adapter.UserListAdapter
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 
@@ -23,7 +26,8 @@ class UserListFragment : MvpAppCompatFragment(), IUserListView, IBackButtonListe
 
     private val screenUserListPresenter by moxyPresenter {
         ScreenUserListPresenter(
-            GithubUsersRepository(),
+            AndroidSchedulers.mainThread(),
+            RetrofitGithubUsersRepo(ApiHolder.api),
             App.instance.router,
             Screens()
         )
@@ -44,7 +48,8 @@ class UserListFragment : MvpAppCompatFragment(), IUserListView, IBackButtonListe
     override fun init() {
         binding?.run {
             this.userList.layoutManager = LinearLayoutManager(context)
-            userListAdapter = UserListAdapter(screenUserListPresenter.userListPresenter)
+            userListAdapter =
+                UserListAdapter(screenUserListPresenter.userListPresenter, GlideImageLoader())
             this.userList.adapter = userListAdapter
         }
     }
