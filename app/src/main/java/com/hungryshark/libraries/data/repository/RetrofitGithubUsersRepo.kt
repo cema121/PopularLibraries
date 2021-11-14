@@ -1,15 +1,17 @@
 package com.hungryshark.libraries.data.repository
 
 import com.hungryshark.libraries.data.IDataSource
-import com.hungryshark.libraries.data.app.App
-import com.hungryshark.libraries.data.data.room.UserDao
+import com.hungryshark.libraries.data.room.UserDao
 import com.hungryshark.libraries.data.model.GithubUser
 import com.hungryshark.libraries.data.room.User
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.BehaviorSubject
 
-class RetrofitGithubUsersRepo(private val api: IDataSource) : IGithubUsersRepo {
-    private val db: UserDao by lazy { App.instance.getDB().userDao() }
+class RetrofitGithubUsersRepo(
+    val api: IDataSource,
+    val db: UserDao
+) : IGithubUsersRepo {
+
     private val bs = BehaviorSubject.create<Unit>()
 
     override fun subscribeOnGithubUsersData(): Observable<List<GithubUser>> {
